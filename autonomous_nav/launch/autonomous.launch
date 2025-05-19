@@ -1,0 +1,13 @@
+<launch>
+    <!-- EKF-SLAM -->
+    <node pkg="nuslam" type="nuslam_node" name="ekf_slam" output="screen"/>
+
+    <!-- Навигация с LiDAR -->
+    <node pkg="autonomous_nav" type="autonomous_nav" name="autonomous_nav" output="screen"/>
+
+    <!-- LiDAR (если используется) -->
+    <node pkg="rplidar_ros" type="rplidarNode" name="rplidar"/>
+
+    <!-- RViz -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find autonomous_nav)/rviz/navigation.rviz"/>
+</launch>

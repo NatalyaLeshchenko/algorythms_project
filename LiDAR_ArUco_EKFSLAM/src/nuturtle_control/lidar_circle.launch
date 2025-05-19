@@ -1,0 +1,29 @@
+<launch>
+  <!-- Скорость -->
+  <arg name="max_speed"    default="0.08"/>
+  <arg name="min_speed"    default="0.05"/>
+  <arg name="turn_speed"   default="0.35"/>
+  <arg name="backup_speed" default="0.08"/>
+
+  <!-- Безопасность -->
+  <arg name="safe_distance" default="0.38"/>
+  <arg name="stop_distance" default="0.32"/>
+  <arg name="sector_angle"  default="60.0"/>
+  <arg name="timeout"       default="4.3"/>
+  <arg name="recover_time"  default="1.5"/>
+
+  <node pkg="nuturtle_control"
+        type="lidar_avoidance"
+        name="robust_avoider"
+        output="screen">
+    <param name="max_speed"      value="$(arg max_speed)"/>
+    <param name="min_speed"      value="$(arg min_speed)"/>
+    <param name="turn_speed"     value="$(arg turn_speed)"/>
+    <param name="backup_speed"   value="$(arg backup_speed)"/>
+    <param name="safe_distance"  value="$(arg safe_distance)"/>
+    <param name="stop_distance"  value="$(arg stop_distance)"/>
+    <param name="sector_angle"   value="$(arg sector_angle)"/>
+    <param name="timeout"        value="$(arg timeout)"/>
+    <param name="recover_time"   value="$(arg recover_time)"/>
+  </node>
+</launch>
